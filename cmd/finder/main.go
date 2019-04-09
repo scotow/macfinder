@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/scotow/mbp-finder"
+	"github.com/scotow/macfinder"
 	"log"
 	"os"
 	"strconv"
@@ -26,7 +26,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	model, err := mbp_finder.FindModel(mbp_finder.Specs{
+	model, err := macfinder.FindModel(macfinder.Specs{
 		Capacity: *storageFlag,
 		Name:     *modelFlag,
 		Year:     strconv.Itoa(*yearFlag),

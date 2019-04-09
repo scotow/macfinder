@@ -1,4 +1,4 @@
-package mbp_finder
+package macfinder
 
 import (
 	"encoding/json"

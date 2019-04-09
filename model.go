@@ -1,4 +1,4 @@
-package mbp_finder
+package macfinder
 
 type Model struct {
 	Specs Specs
