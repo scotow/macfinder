@@ -44,7 +44,7 @@ func FetchAvailable() ([]*Model, error) {
 		return nil, ErrInvalidRawData
 	}
 
-	jsonData := scriptRawText[len(scriptPrefix):len(scriptRawText) - len(scriptSuffix)]
+	jsonData := scriptRawText[len(scriptPrefix) : len(scriptRawText)-len(scriptSuffix)]
 
 	var data response
 	err = json.Unmarshal([]byte(jsonData), &data)
@@ -67,7 +67,7 @@ func FindModel(specs Specs) (*Model, error) {
 	}
 
 	for _, m := range available {
-		if specs.equal(m.Specs) {
+		if m.Specs.match(specs) {
 			return m, nil
 		}
 	}

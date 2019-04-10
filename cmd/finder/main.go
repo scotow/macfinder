@@ -10,21 +10,16 @@ import (
 )
 
 var (
-	storageFlag 	= flag.String("s", "", "invalid disk capacity")
-	modelFlag 	 	= flag.String("m", "", "model string")
-	yearFlag	 	= flag.Int("y", 0, "release year")
-	colorFlag    	= flag.String("c", "", "product color")
-	ramFlag      	= flag.Int("r", 0, "ram size")
-	screenFlag 		= flag.Int("d", 0, "screen dimension")
+	storageFlag = flag.String("s", "", "disk capacity")
+	modelFlag   = flag.String("m", "", "model string")
+	yearFlag    = flag.Int("y", 0, "release year")
+	colorFlag   = flag.String("c", "", "product color")
+	ramFlag     = flag.Int("r", 0, "ram size")
+	screenFlag  = flag.Int("d", 0, "screen dimension")
 )
 
 func main() {
 	flag.Parse()
-
-	if *storageFlag == "" || *modelFlag == "" || *yearFlag == 0 || *colorFlag == "" || *ramFlag == 0 || *screenFlag == 0 {
-		flag.Usage()
-		os.Exit(1)
-	}
 
 	model, err := macfinder.FindModel(macfinder.Specs{
 		Capacity: *storageFlag,
@@ -43,5 +38,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Model available: %s\n", "https://apple.com" + model.Link)
+	fmt.Printf("Model available: %s\n", "https://apple.com"+model.Link)
 }
